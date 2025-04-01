@@ -1,25 +1,24 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import animasjon
-def implisitt_euler(N, M, k, h):
-    r = k / h**2
-    x = np.linspace(0, 2 * np.pi, N + 1)
-    u = np.sin(x)
-    u_new = np.zeros(N + 1)
-    
-    A = np.diag((1 + 2 * r) * np.ones(N-1)) + np.diag(-r * np.ones(N-2), 1) + np.diag(-r * np.ones(N-2), -1)
-    
-    for j in range(M):
-        u_new[1:N] = np.linalg.solve(A, u[1:N])
-        u[:] = u_new[:]
-    
-    return x, u
+import matplotlib.animation as animation
 
-# Parametere
-N = 50  # Antall punkter i x
-M = 200  # Antall tidsskritt
-h = 0.5  # Romsteg
-k = h**2/2  # Tidssteg
+h = 0.25
+k = 0.01
+x = np.arange(0, 1+h, h)
+t = np.arange(0, 1+k, k)
+n, m = len(x), len(t)
+u = np.zeros((n, m))
+u[:, 0] = np.sin(x)
+r = k / h**2
 
+A = np.diag(2 * np.ones(n)) + np.diag(-1 * np.ones(n - 1), 1) + np.diag(-1 * np.ones(n - 1), -1)
+I = np.eye(n)
+M = np.linalg.inv(I + r * A)
 
-#animasjon.animasjon(implisitt_euler,"Implisitt euler", N, M, k, h)
+for j in range(m - 1):
+    u[:, j+1] = M @ u[:, j]
+
+fig, ax = plt.subplots()
+line, = ax.plot(x, u[:, 0])
+ani = animation.FuncAnimation(fig, lambda f: line.set_ydata(u[:, f]), frames=m, interval=100)
+plt.show()
