@@ -13,11 +13,6 @@ Det tok 6 iterasjoner før feilen begynte å vokse (oppgave2.py). Fikk mer presi
 - For implisitt metode og Crank-Nicolson løste jeg likningssystemene som foreslått i kompendiumet. 
 - Den implisitte metoden var mer stabil, men for k og h liten nok, gadd ikke programmet å kjøre.
 - Crank-Nicolson var også stabil, og litt raskere.
-- **Kort sammenligning:**  
-    - Eksplisitt: Enklere å implementere, men ikke alltid stabil.  
-    - Implisitt og Crank-Nicolson: Mer beregningstunge, men stabilere.  
-    - Crank-Nicolson var raskere enn implisitt.
-
 
 Kilde: https://www.math.ntnu.no/emner/TMA4125/2019v/notater/11-numerikk-for-pde.pdf
 
