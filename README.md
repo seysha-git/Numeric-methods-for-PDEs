@@ -15,5 +15,7 @@ Det tok 6 iterasjoner før feilen begynte å vokse (oppgave2.py). Fikk mer presi
 - Crank-Nicolson var også stabil, og litt raskere.
 
 Kilde: https://www.math.ntnu.no/emner/TMA4125/2019v/notater/11-numerikk-for-pde.pdf
+## Bonus
+-Noe spennende jeg har jobbet med på egenhånd er et lite spill i c++: https://github.com/seysha-git/GameDev
 
 
