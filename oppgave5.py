@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-h = 0.25
+h = 0.01
 k = 0.01
 x = np.arange(0, 1 + h, h)
 t = np.arange(0, 1 + k, k)
@@ -13,6 +13,7 @@ r = k / h**2
 
 A = np.diag(2 * np.ones(n)) + np.diag(-1 * np.ones(n - 1), 1) + np.diag(-1 * np.ones(n - 1), -1)
 I = np.eye(n)
+
 
 M = I + r * A
 

@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-h = 0.25
+h = 0.01
 k = 0.01
 x = np.arange(0, 1+h, h)
 t = np.arange(0, 1+k, k)
@@ -22,5 +22,8 @@ for j in range(m - 1):
 
 fig, ax = plt.subplots()
 line, = ax.plot(x, u[:, 0])
-ani = animation.FuncAnimation(fig, lambda f: line.set_ydata(u[:, f]), frames=m, interval=100)
+def update(frame):
+    line.set_ydata(u[:, frame])
+    return line,
+ani = animation.FuncAnimation(fig, update, frames=m, interval=100)
 plt.show()

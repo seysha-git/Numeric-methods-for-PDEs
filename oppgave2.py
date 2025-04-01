@@ -20,8 +20,6 @@ while(feil > ny_feil):
     
     ny_feil = abs(f_approx(h) - f_derr(1.5))
     h /= 10
-    print("Feilen er proporsjonal med h. "
-    "Når h er liten nok, vil feilen i stigningen "
-    "til sekanten være liten nok til at det er en god tilnærming til den deriverte. "
-    "")
+
+print(n)
 

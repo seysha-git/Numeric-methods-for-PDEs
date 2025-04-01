@@ -1,28 +1,31 @@
 import numpy as np
-import matplotlib.animation as animation
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-h = 0.5
-k = 0.05
-x = np.arange(0, 1+h, h)
-t = np.arange(0, 1+k, k)
-randkrav = [0, 0]
-initialkrav = np.sin(x)
-n = len(x)
-m = len(t)
+# Definerer parametrene
+h = 0.25
+k = 0.01
+x = np.arange(0, 1 + h, h)
+t = np.arange(0, 1 + k, k)
+n, m = len(x), len(t)
 u = np.zeros((n, m))
-u[0, :] = randkrav[0]
-u[-1, :] = randkrav[-1]
-u[:, 0] = initialkrav
-r = k / h**2
+u[:, 0] = np.sin(x)  
+r = k / (2 * h**2)  
+
+A = np.diag(2 * np.ones(n)) + np.diag(-1 * np.ones(n - 1), 1) + np.diag(-1 * np.ones(n - 1), -1)
+I = np.eye(n)
+
+M = I - r * A
 
 for j in range(m - 1):
-    for i in range(1, n - 1):
-        u[i, j+1] = u[i, j] + r * (u[i+1, j] - 2 * u[i, j] + u[i-1, j])
- 
+    u[:, j + 1] = M @ u[:, j] 
+
 fig, ax = plt.subplots()
 line, = ax.plot(x, u[:, 0])
-ani = animation.FuncAnimation(fig, lambda f: line.set_ydata(u[:, f]), frames=m, interval=500)
+
+def update(frame):
+    line.set_ydata(u[:, frame])  
+    return line,
+
+ani = animation.FuncAnimation(fig, update, frames=m, interval=100)
 plt.show()
-
-
