@@ -10,7 +10,7 @@ Det tok 6 iterasjoner før feilen begynte å vokse (oppgave2.py). Fikk mer presi
 
 ## 3. Eksplisitt metode, Implisitt metode og Crank-Nicolson metode:
 - Med eksplisitt metode er det tydelig med animasjon at k/h^2 = r <= 1/2  for å unngå numerisk ustabilitet.
-- For implisitt metode og Crank-Nicolson løste jeg likningssystemene som foreslått i kompendiumet. 
+- For implisitt metode og Crank-Nicolson løste jeg likningssystemene som foreslått i kompendiumet, men naturligvis treigere 
 - Den implisitte metoden var mer stabil, men for k og h liten nok, gadd ikke programmet å kjøre.
 - Crank-Nicolson var også stabil, og litt raskere.
 
