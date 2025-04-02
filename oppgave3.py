@@ -21,3 +21,6 @@ while(feil > ny_feil):
     
     ny_feil = abs(f_approx(h) - f_derr(1.5))
     h /= 10
+
+
+

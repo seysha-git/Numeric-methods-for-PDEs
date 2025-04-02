@@ -2,8 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
-# Definerer parametrene
-h = 0.25
+h = 0.2
 k = 0.01
 x = np.arange(0, 1 + h, h)
 t = np.arange(0, 1 + k, k)
